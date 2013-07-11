@@ -2,10 +2,12 @@ var express = require('express');
 var fs = require(’fs’);
 
 var app = express.createServer(express.logger());
+app.set('view engine', 'jade');
 
 app.get('/', function(request, response) {
-  var buf = fs.readFileSync('index.html');
-  response.send(buf.toString());
+  //var buf = fs.readFileSync('index.html');
+  //response.send(buf.toString());
+  response.render('index');
 });
 
 var port = process.env.PORT || 5000;
